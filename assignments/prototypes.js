@@ -66,7 +66,21 @@ Humanoid.prototype.greet = function() {
 */
 
 // Test you work by un-commenting these 3 objects and the list of console logs below:
+function Hero(heroAttributes) {
+  Humanoid.call(this, heroAttributes);
+  this.type = heroAttributes.type;
+  this.passive = heroAttributes.passive;
+  this.ability = heroAttributes.ability;
+}
+Hero.prototype = Object.create(Humanoid.prototype);
 
+function Villain(villainAttributes) {
+  Humanoid.call(this, villainAttributes);
+  this.type = villainAttributes.type;
+  this.passive = villainAttributes.passive;
+  this.ability = villainAttributes.ability;
+}
+Villain.prototype = Object.create(Humanoid.prototype);
 
   const mage = new Humanoid({
     createdAt: new Date(),
