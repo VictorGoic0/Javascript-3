@@ -76,8 +76,9 @@ Hero.prototype = Object.create(Humanoid.prototype);
 Hero.prototype.attack = function(opponent) {
   opponent.healthPoints -= 5;
   if (opponent.healthPoints <= 0) {
-    opponent.destroy();
+    return opponent.destroy();
   }
+  return `${this.name} has attacked ${opponent.name} for 5 damage!`
 }
 
 function Villain(villainAttributes) {
@@ -145,7 +146,7 @@ Villain.prototype = Object.create(Hero.prototype);
       height: 4,
     },
     healthPoints: 100,
-    name: 'Leon',
+    name: 'Demon Lord Leon Cromwell',
     team: 'Dark Guild',
     weapons: [
       'Corrupted Sword', 'Corrupted Shield'
@@ -163,7 +164,7 @@ Villain.prototype = Object.create(Hero.prototype);
       height: 3,
     },
     healthPoints: 50,
-    name: 'Gazef',
+    name: 'Hero King Gazef Stronoff',
     team: 'Holy Kingdom',
     weapons: [
       'Holy Sword', 'Holy Shield'
@@ -184,6 +185,27 @@ Villain.prototype = Object.create(Hero.prototype);
   console.log(archer.greet()); // Lilith offers a greeting in Elvish.
   console.log(mage.takeDamage()); // Bruce took damage.
   console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+  console.log(DemonLord.healthPoints)
+  console.log(HeroKing.attack(DemonLord));
+  console.log(HeroKing.attack(DemonLord));
+  console.log(HeroKing.attack(DemonLord));
+  console.log(HeroKing.attack(DemonLord));
+  console.log(HeroKing.attack(DemonLord));
+  console.log(HeroKing.attack(DemonLord));
+  console.log(HeroKing.attack(DemonLord));
+  console.log(HeroKing.attack(DemonLord));
+  console.log(HeroKing.attack(DemonLord));
+  console.log(HeroKing.attack(DemonLord));
+  console.log(HeroKing.attack(DemonLord));
+  console.log(HeroKing.attack(DemonLord));
+  console.log(HeroKing.attack(DemonLord));
+  console.log(HeroKing.attack(DemonLord));
+  console.log(HeroKing.attack(DemonLord));
+  console.log(HeroKing.attack(DemonLord));
+  console.log(HeroKing.attack(DemonLord));
+  console.log(HeroKing.attack(DemonLord));
+  console.log(HeroKing.attack(DemonLord));
+  console.log(HeroKing.attack(DemonLord));
 
 
   // Stretch task:
