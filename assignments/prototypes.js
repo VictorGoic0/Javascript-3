@@ -75,6 +75,9 @@ function Hero(heroAttributes) {
 Hero.prototype = Object.create(Humanoid.prototype);
 Hero.prototype.attack = function(opponent) {
   opponent.healthPoints -= 5;
+  if (opponent.healthPoints <= 0) {
+    opponent.destroy();
+  }
 }
 
 function Villain(villainAttributes) {
@@ -133,6 +136,43 @@ Villain.prototype = Object.create(Hero.prototype);
     ],
     language: 'Elvish',
   });
+
+  const DemonLord = new Villain({
+    createdAt: new Date(),
+    dimensions: {
+      length: 2,
+      width: 2,
+      height: 4,
+    },
+    healthPoints: 100,
+    name: 'Leon',
+    team: 'Dark Guild',
+    weapons: [
+      'Corrupted Sword', 'Corrupted Shield'
+    ],
+    language: 'Demon',
+    type: 'Demon',
+    passive: 'Turning your back to the Demon Lord will put you under his spell of piety, turning you into his slave.',
+    ability: 'Every third attack of the Demon Lord will do triple the damage.'
+  });
+  const HeroKing = new Hero({
+    createdAt: new Date(),
+    dimensions: {
+      length: 2,
+      width: 2,
+      height: 3,
+    },
+    healthPoints: 50,
+    name: 'Gazef',
+    team: 'Holy Kingdom',
+    weapons: [
+      'Holy Sword', 'Holy Shield'
+    ],
+    language: 'Common Tongue',
+    type: 'Human',
+    passive: 'Being hit by an attack of fatal damage will render Gazef invulnerable for 60 seconds.',
+    ability: 'Gazef can charge his attacks for varying levels of damage.'
+  })
 
   console.log(mage.createdAt); // Today's date
   console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
