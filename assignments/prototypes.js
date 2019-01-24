@@ -73,14 +73,16 @@ function Hero(heroAttributes) {
   this.ability = heroAttributes.ability;
 }
 Hero.prototype = Object.create(Humanoid.prototype);
+Hero.prototype.attack = function(opponent) {
+  opponent.healthPoints -= 5;
+}
 
 function Villain(villainAttributes) {
   Humanoid.call(this, villainAttributes);
-  this.type = villainAttributes.type;
-  this.passive = villainAttributes.passive;
-  this.ability = villainAttributes.ability;
+  Hero.call(this, villainAttributes);
 }
 Villain.prototype = Object.create(Humanoid.prototype);
+Villain.prototype = Object.create(Hero.prototype);
 
   const mage = new Humanoid({
     createdAt: new Date(),
